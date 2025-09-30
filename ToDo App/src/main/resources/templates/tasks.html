@@ -3,6 +3,11 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>ToDo App</title>
+    <style>
+        .text-strikethrough{
+        text-decoration:line-through;
+        color:grey;
+    </style>
 </head>
 <body>
 <h1>ToDo App</h1>
@@ -23,5 +28,12 @@
         <input type="submit">Add</input>
     </div>
 </form>
+<span th:classappend="${task.completed} ? 'text-strikethrough'" th:text = "${task.title}">
+    Task Title
+</span>
+<div>
+    <a th:href="@{/{id}toggle(id=${task:id})}" class="btn btn-outline-secondary btn-sm">Toggle</a>
+    <a th:href="@{/{id}/delete(id=${task.id})}" class="btn btn-outline-secondary-danger ttn-sm ml-2">Delete</a>
+</div>
 </body>
 </html>

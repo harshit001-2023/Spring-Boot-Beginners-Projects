@@ -12,7 +12,7 @@ import java.util.List;
 public class TaskController {
     private final TaskServices taskService;
 
-    @RequestMapping("/Task")
+//    @RequestMapping("/Task")
     public TaskController(TaskServices taskService){
         this.taskService = taskService;
     }
@@ -21,6 +21,7 @@ public class TaskController {
     public String getTasks(Model model){
         List<Task> tasks = taskService.getAllTask();
         model.addAttribute("Tasks", tasks);
+        return "tasks";
     }
 
     @PostMapping
@@ -31,7 +32,13 @@ public class TaskController {
 
     @GetMapping("/{id}/delete")
     public String deleteTask(@PathVariable long id){
-        taskService deleteTask(id);
-        return "redirect:/"
+        taskService.deleteTask(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/{id}/toggle")
+    public String toggleTask(@PathVariable long id){
+        taskService.toggleTask(id);
+        return "redirect:/";
     }
 }
