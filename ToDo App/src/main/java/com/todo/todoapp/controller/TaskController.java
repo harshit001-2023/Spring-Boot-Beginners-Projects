@@ -1,4 +1,4 @@
-package com.todo.todoapp.repository;
+package com.todo.todoapp.controller; // Changed package to controller
 
 import com.todo.todoapp.models.Task;
 import com.todo.todoapp.services.TaskServices;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/") // Add this to map all methods to root path
 public class TaskController {
     private final TaskServices taskService;
 
-//    @RequestMapping("/Task")
     public TaskController(TaskServices taskService){
         this.taskService = taskService;
     }
@@ -20,8 +20,8 @@ public class TaskController {
     @GetMapping
     public String getTasks(Model model){
         List<Task> tasks = taskService.getAllTask();
-        model.addAttribute("Tasks", tasks);
-        return "tasks";
+        model.addAttribute("tasks", tasks); // Changed "Tasks" to "tasks" (lowercase)
+        return "index"; // Changed from "tasks" to "index"
     }
 
     @PostMapping
