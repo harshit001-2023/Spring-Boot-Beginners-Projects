@@ -1,6 +1,6 @@
 package com.todo.todoapp.services;
 
-import com.todo.todoapp.model.Task;
+import com.todo.todoapp.models.Task;
 import com.todo.todoapp.repository.TaskRepository;
 
 import java.util.List;

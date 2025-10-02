@@ -1,4 +1,4 @@
-package com.todo.todoapp.model;
+package com.todo.todoapp.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ public class Task{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private long id;
+    private Long id;
     private String title;
     private boolean completed;
 }

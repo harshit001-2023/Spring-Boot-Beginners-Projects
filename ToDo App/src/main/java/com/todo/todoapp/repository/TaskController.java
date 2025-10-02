@@ -1,6 +1,6 @@
 package com.todo.todoapp.repository;
 
-import com.todo.todoapp.model.Task;
+import com.todo.todoapp.models.Task;
 import com.todo.todoapp.services.TaskServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
