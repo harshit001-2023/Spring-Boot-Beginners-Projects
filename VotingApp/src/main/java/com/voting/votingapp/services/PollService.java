@@ -1,0 +1,16 @@
+package com.voting.votingapp.services;
+
+import com.voting.votingapp.models.Poll;
+import com.voting.votingapp.repositories.PollRepository;
+
+public class PollService {
+    private final PollRepository pollRepository;
+
+    public PollService(PollRepository pollRepository) {
+        this.pollRepository = pollRepository;
+    }
+
+    public Poll pollCreate(Poll poll) {
+        return pollRepository.save(poll);
+    }
+}
