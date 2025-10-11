@@ -14,5 +14,3 @@ public class PollService {
         return pollRepository.save(poll);
     }
 }
-
-
