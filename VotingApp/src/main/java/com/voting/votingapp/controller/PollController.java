@@ -21,5 +21,3 @@ public class PollController {
         return pollService.pollCreate(poll);
     }
 }
-
-
