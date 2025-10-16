@@ -5,6 +5,7 @@ import com.voting.votingapp.services.PollService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
+import request.Vote;
 
 import java.util.List;
 
@@ -32,5 +33,13 @@ public class PollController {
         return pollService.getPollById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    //POST
+    //VOTE
+    // SERVICE
+    @PostMapping("/vote")
+    public void vote(@RequestBody Vote vote){
+        return;pollService.vote(vote.getPollId(), vote.getOptionIndex());
     }
 }
