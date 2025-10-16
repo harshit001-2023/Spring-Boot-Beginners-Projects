@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PollService {
@@ -26,4 +27,7 @@ public class PollService {
     }
 
 
+    public Optional<Poll> getPollById(Long id) {
+        return pollRepository.findById(id);
+    }
 }
