@@ -44,5 +44,14 @@ public class PollService {
         if(optionIndex < 0 || optionIndex >= options.size()){
             throw new IllegalArgumentException("Invalid option index");
         }
+
+        //Get Selected Option
+        OptionVote selectedOption = options.get(optionIndex);
+
+        //Increment vote for selected option
+        selectedOption.setVoteOption(selectedOption.getVoteOption() + 1);
+
+        //Save incremented option into the database
+        pollRepository.save(poll);
     }
 }
