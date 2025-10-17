@@ -1,5 +1,6 @@
 package com.voting.votingapp.services;
 
+import com.voting.votingapp.models.OptionVote;
 import com.voting.votingapp.models.Poll;
 import com.voting.votingapp.repositories.PollRepository;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +30,19 @@ public class PollService {
 
     public Optional<Poll> getPollById(Long id) {
         return pollRepository.findById(id);
+    }
+
+    public void vote(Long pollId, int optionIndex) {
+        // Get Poll from DB
+        Poll poll = pollRepository.findById(pollId)
+                .orElseThrow(() -> new RuntimeException("Poll not found"));
+
+        //Get all options
+        List<OptionVote> options = poll.getOptions();
+
+        //If index for oe is not valid, throw error
+        if(optionIndex < 0 || optionIndex >= options.size()){
+            throw new IllegalArgumentException("Invalid option index");
+        }
     }
 }
