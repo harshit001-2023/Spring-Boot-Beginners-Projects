@@ -40,6 +40,6 @@ public class PollController {
     // SERVICE
     @PostMapping("/vote")
     public void vote(@RequestBody Vote vote){
-        return;pollService.vote(vote.getPollId(), vote.getOptionIndex());
+        pollService.vote(vote.getPollId(), vote.getOptionIndex());
     }
 }

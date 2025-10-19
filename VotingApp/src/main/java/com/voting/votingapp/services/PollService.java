@@ -40,7 +40,7 @@ public class PollService {
         //Get all options
         List<OptionVote> options = poll.getOptions();
 
-        //If index for oe is not valid, throw error
+        //If index for vote is not valid, throw error
         if(optionIndex < 0 || optionIndex >= options.size()){
             throw new IllegalArgumentException("Invalid option index");
         }
