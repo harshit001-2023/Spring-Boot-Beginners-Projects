@@ -1,11 +1,11 @@
 package com.voting.votingapp.controller;
 
 import com.voting.votingapp.models.Poll;
+import com.voting.votingapp.request.Vote;
 import com.voting.votingapp.services.PollService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
-import request.Vote;
 
 import java.util.List;
 
