@@ -1,0 +1,19 @@
+# Eclipse
+bin/
+.classpath
+.project
+.settings/
+
+# Compiled files
+*.class
+*.jar
+
+# Libraries (do NOT commit JARs)
+**/lib/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

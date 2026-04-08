@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- LocalDateTime bean - gets current date and time -->
+    <bean id="currentDateTime" 
+          class="java.time.LocalDateTime" 
+          factory-method="now" />
+
+    <!-- WishMessageGenerator with Setter Injection -->
+    <bean id="wishMessageGenerator" 
+          class="com.wish.WishMessageGenerator">
+
+        <!-- Setter-based Dependency Injection -->
+        <property name="currentDateTime" ref="currentDateTime" />
+
+    </bean>
+
+</beans>
