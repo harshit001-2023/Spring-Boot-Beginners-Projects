@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Department Bean -->
+    <bean id="department" class="com.department.Department">
+        <constructor-arg value="101" />
+        <constructor-arg value="Information Technology" />
+    </bean>
+
+    <!-- Employee Bean with Constructor Injection -->
+    <bean id="employee" class="com.department.Employee">
+        <constructor-arg value="101" />
+        <constructor-arg value="John" />
+        <constructor-arg ref="department" />
+    </bean>
+
+</beans>
