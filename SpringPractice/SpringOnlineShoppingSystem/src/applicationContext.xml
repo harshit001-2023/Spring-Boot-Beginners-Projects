@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Product Bean -->
+    <bean id="product" class="com.onlineshop.Product">
+        <constructor-arg value="501" />
+        <constructor-arg value="Wireless Earbuds" />
+        <constructor-arg value="2500.0" />
+    </bean>
+
+    <!-- Customer Bean -->
+    <bean id="customer" class="com.onlineshop.Customer">
+        <constructor-arg value="101" />
+        <constructor-arg value="Sarah Khan" />
+        <constructor-arg value="Mumbai" />
+    </bean>
+
+    <!-- Order Bean - Constructor Injection with Customer and Product -->
+    <bean id="order" class="com.onlineshop.Order">
+        <constructor-arg value="1001" />
+        <constructor-arg ref="customer" />
+        <constructor-arg ref="product" />
+        <constructor-arg value="2" />
+    </bean>
+
+    <!-- BillService Bean -->
+    <bean id="billService" class="com.onlineshop.BillService">
+        <constructor-arg value="18.0" />
+        <constructor-arg value="10.0" />
+    </bean>
+
+    <!-- OnlineStore Bean - Constructor Injection -->
+    <bean id="onlineStore" class="com.onlineshop.OnlineStore">
+        <constructor-arg ref="order" />
+        <constructor-arg ref="billService" />
+    </bean>
+
+</beans>
